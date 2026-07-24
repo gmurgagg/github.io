@@ -104,21 +104,19 @@
     z-index: 0;
   }
 
-  .band-deco i {
+  .band-deco img {
     position: absolute;
     display: block;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.16);
+    opacity: 0.55;
     will-change: transform;
+    user-select: none;
   }
 
-  .deco-1 { width: 86px;  height: 86px;  right: 4%;   top: 12%; }
-  .deco-2 { width: 54px;  height: 54px;  right: 22%;  top: 62%; border-color: rgba(217, 154, 31, 0.42); }
-  .deco-3 { width: 120px; height: 120px; right: 34%;  top: -18%; }
-  .deco-4 { width: 40px;  height: 40px;  right: 13%;  top: 78%;  border-color: rgba(217, 154, 31, 0.32); }
-  .deco-5 { width: 68px;  height: 68px;  right: 45%;  top: 46%; }
-  .deco-6 { width: 30px;  height: 30px;  right: 30%;  top: 24%;  border-color: rgba(200, 64, 79, 0.45); }
-  .deco-7 { width: 96px;  height: 96px;  left: 6%;    top: 70%; }
+  .deco-1 { width: 62px; right: 4%;  top: 6%; }
+  .deco-2 { width: 56px; right: 23%; top: 2%; }
+  .deco-3 { width: 68px; right: 9%;  top: 40%; }
+  .deco-4 { width: 50px; right: 26%; top: 60%; }
+  .deco-5 { width: 48px; right: 3%;  top: 74%; }
 
   .band-inner { display: flex; align-items: center; gap: 40px; position: relative; z-index: 1; }
 
@@ -377,7 +375,10 @@
     .panel { padding: 28px 24px 30px; }
     .panel-about { padding-top: 74px; }
     .contact { flex-direction: column; align-items: flex-start; }
-    .deco-2, .deco-5, .deco-6 { display: none; }
+    .deco-2, .deco-4 { display: none; }
+    .deco-1 { width: 44px; }
+    .deco-3 { width: 46px; }
+    .deco-5 { width: 36px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -403,14 +404,12 @@
 </div>
 
 <header class="band">
-  <div class="band-deco">
-    <i class="deco-1" data-speed="0.62"></i>
-    <i class="deco-2" data-speed="-0.48"></i>
-    <i class="deco-3" data-speed="0.34"></i>
-    <i class="deco-4" data-speed="0.85"></i>
-    <i class="deco-5" data-speed="-0.7"></i>
-    <i class="deco-6" data-speed="0.55"></i>
-    <i class="deco-7" data-speed="-0.4"></i>
+  <div class="band-deco" aria-hidden="true">
+    <img class="deco-1" src="normal.png"        alt="" data-speed="0.62"  data-rot="-8">
+    <img class="deco-2" src="mariachiHat.png"   alt="" data-speed="-0.48" data-rot="12">
+    <img class="deco-3" src="supplyYdemand.png" alt="" data-speed="0.34"  data-rot="-5">
+    <img class="deco-4" src="glasses.png"       alt="" data-speed="0.85"  data-rot="9">
+    <img class="deco-5" src="creditcard.png"    alt="" data-speed="-0.7"  data-rot="-14">
   </div>
   <div class="wrap band-inner">
     <div class="portrait-holder">
@@ -534,7 +533,7 @@
   }
 
   /* drifting rings in the header, plus the progress bar and active nav link */
-  var rings = document.querySelectorAll(".band-deco i");
+  var rings = document.querySelectorAll(".band-deco img");
   var bar = document.getElementById("progress-bar");
   var links = document.querySelectorAll("nav a");
   var sections = document.querySelectorAll("section[id]");
@@ -546,7 +545,8 @@
     if (!calm) {
       rings.forEach(function (ring) {
         var speed = parseFloat(ring.getAttribute("data-speed")) || 0;
-        ring.style.transform = "translate3d(0," + (y * speed) + "px,0)";
+        var rot = parseFloat(ring.getAttribute("data-rot")) || 0;
+        ring.style.transform = "translate3d(0," + (y * speed) + "px,0) rotate(" + rot + "deg)";
       });
     }
 
