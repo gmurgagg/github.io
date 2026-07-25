@@ -414,21 +414,25 @@
   .has-js .reveal.visible { opacity: 1; transform: none; }
 
   @media (max-width: 640px) {
-    .band { padding: 40px 0 44px; }
+    .band { padding: 34px 0 40px; }
     nav { justify-content: flex-start; flex-wrap: wrap; }
     nav a { padding: 2px 14px; }
     nav a:first-child { padding-left: 0; }
-    .band-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .portrait-holder { transform: translateY(58px); padding: 10px; }
+    .band-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .portrait-holder { transform: none; padding: 9px; }
     .band-text { transform: none; }
-    .portrait { width: 148px; height: 148px; }
+    .portrait { width: 132px; height: 132px; }
     .panel { padding: 28px 24px 30px; }
-    .panel-about { padding-top: 74px; }
+    .panel-about { padding-top: 30px; }
     .contact { flex-direction: column; align-items: flex-start; }
+
+    /* keep a few objects, all clear of the portrait and the text below it */
     .band-deco img { display: none; }
     .band-front { display: none; }
-    .deco-7 { display: block; width: 52px; right: 4%; top: 3%; }
-    .deco-3 { display: block; width: 44px; left: 2%; top: 74%; }
+    .deco-7 { display: block; width: 54px; right:  4%; top:  6%; opacity: 0.5; }
+    .deco-9 { display: block; width: 38px; right: 26%; top:  3%; opacity: 0.38; }
+    .deco-1 { display: block; width: 46px; right:  9%; top: 26%; opacity: 0.44; }
+    .deco-5 { display: block; width: 36px; right: 28%; top: 32%; opacity: 0.32; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -457,14 +461,14 @@
   <div class="band-deco" aria-hidden="true">
     <img class="deco-1"  src="normal.png"        alt="" data-speed="0.62"  data-rot="-8">
     <img class="deco-2"  src="glasses.png"       alt="" data-speed="-0.55" data-rot="14">
-    <img class="deco-3"  src="creditcard.png"    alt="" data-speed="0.78"  data-rot="-16">
+    <img class="deco-3"  src="creditCard.png"    alt="" data-speed="0.78"  data-rot="-16">
     <img class="deco-4"  src="mariachiHat.png"   alt="" data-speed="-0.42" data-rot="7">
     <img class="deco-5"  src="supplyYdemand.png" alt="" data-speed="0.36"  data-rot="-4">
     <img class="deco-6"  src="normal.png"        alt="" data-speed="-0.88" data-rot="19">
 
     <img class="deco-7"  src="mariachiHat.png"   alt="" data-speed="-0.48" data-rot="12">
     <img class="deco-8"  src="supplyYdemand.png" alt="" data-speed="0.34"  data-rot="-6">
-    <img class="deco-9"  src="creditcard.png"    alt="" data-speed="-0.7"  data-rot="-13">
+    <img class="deco-9"  src="creditCard.png"    alt="" data-speed="-0.7"  data-rot="-13">
     <img class="deco-10" src="glasses.png"       alt="" data-speed="0.85"  data-rot="9">
     <img class="deco-11" src="normal.png"        alt="" data-speed="-0.6"  data-rot="-11">
     <img class="deco-12" src="mariachiHat.png"   alt="" data-speed="0.5"   data-rot="17">
@@ -473,7 +477,7 @@
     <div class="band-front-inner">
       <img class="deco-13" src="supplyYdemand.png" alt="" data-speed="-0.95" data-rot="-9">
       <img class="deco-14" src="glasses.png"       alt="" data-speed="0.72"  data-rot="16">
-      <img class="deco-15" src="creditcard.png"    alt="" data-speed="-0.82" data-rot="-18">
+      <img class="deco-15" src="creditCard.png"    alt="" data-speed="-0.82" data-rot="-18">
       <img class="deco-16" src="mariachiHat.png"   alt="" data-speed="0.9"   data-rot="-12">
     </div>
   </div>
