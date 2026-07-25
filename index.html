@@ -104,6 +104,34 @@
     z-index: 0;
   }
 
+  .band-front {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .band-front-inner {
+    position: relative;
+    height: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .band-front img {
+    position: absolute;
+    display: block;
+    will-change: transform;
+    user-select: none;
+  }
+
+  .deco-13 { width: 94px; left: 12%;  top: 56%; opacity: 0.46; }
+  .deco-14 { width: 64px; left: 36%;  top: 16%; opacity: 0.42; }
+  .deco-15 { width: 58px; right: 22%; top: 60%; opacity: 0.40; }
+  .deco-16 { width: 50px; left: 20%;  top: 26%; opacity: 0.38; }
+
   .band-deco img {
     position: absolute;
     display: block;
@@ -112,13 +140,35 @@
     user-select: none;
   }
 
-  .deco-1 { width: 62px; right: 4%;  top: 6%; }
-  .deco-2 { width: 56px; right: 23%; top: 2%; }
-  .deco-3 { width: 68px; right: 9%;  top: 40%; }
-  .deco-4 { width: 50px; right: 26%; top: 60%; }
-  .deco-5 { width: 48px; right: 3%;  top: 74%; }
+  .deco-1  { width: 86px; left:  2%;  top: 16%;  opacity: 0.58; }
+  .deco-2  { width: 54px; left:  9%;  top: 42%;  opacity: 0.40; }
+  .deco-3  { width: 68px; left:  3%;  top: 66%;  opacity: 0.52; }
+  .deco-4  { width: 48px; left: 12%;  top: 80%;  opacity: 0.34; }
+  .deco-5  { width: 72px; left:  6%;  top: 26%;  opacity: 0.46; }
+  .deco-6  { width: 40px; left: 14%;  top: 58%;  opacity: 0.32; }
 
-  .band-inner { display: flex; align-items: center; gap: 40px; position: relative; z-index: 1; }
+  .deco-7  { width: 90px; right: 4%;  top: 14%;  opacity: 0.58; }
+  .deco-8  { width: 74px; right: 14%; top: 46%;  opacity: 0.46; }
+  .deco-9  { width: 60px; right: 5%;  top: 72%;  opacity: 0.52; }
+  .deco-10 { width: 52px; right: 22%; top: 22%;  opacity: 0.36; }
+  .deco-11 { width: 44px; right: 27%; top: 62%;  opacity: 0.30; }
+  .deco-12 { width: 42px; right: 17%; top: 80%;  opacity: 0.34; }
+
+  /* peel the inner objects away as the window narrows so nothing lands on the text */
+  @media (max-width: 1240px) {
+    .deco-6, .deco-10, .deco-11 { display: none; }
+    .deco-2 { left: 6%; }
+    .deco-8 { right: 9%; }
+    .deco-12 { right: 12%; }
+  }
+
+  @media (max-width: 1040px) {
+    .deco-2, .deco-4, .deco-12 { display: none; }
+    .deco-1 { width: 58px; left: 2%; }
+    .deco-8 { width: 50px; right: 4%; top: 56%; }
+  }
+
+  .band-inner { display: flex; align-items: center; gap: 40px; position: relative; z-index: 4; }
 
   .portrait-holder {
     flex: 0 0 auto;
@@ -375,10 +425,10 @@
     .panel { padding: 28px 24px 30px; }
     .panel-about { padding-top: 74px; }
     .contact { flex-direction: column; align-items: flex-start; }
-    .deco-2, .deco-4 { display: none; }
-    .deco-1 { width: 44px; }
-    .deco-3 { width: 46px; }
-    .deco-5 { width: 36px; }
+    .band-deco img { display: none; }
+    .band-front { display: none; }
+    .deco-7 { display: block; width: 52px; right: 4%; top: 3%; }
+    .deco-3 { display: block; width: 44px; left: 2%; top: 74%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -405,12 +455,29 @@
 
 <header class="band">
   <div class="band-deco" aria-hidden="true">
-    <img class="deco-1" src="normal.png"        alt="" data-speed="0.62"  data-rot="-8">
-    <img class="deco-2" src="mariachiHat.png"   alt="" data-speed="-0.48" data-rot="12">
-    <img class="deco-3" src="supplyYdemand.png" alt="" data-speed="0.34"  data-rot="-5">
-    <img class="deco-4" src="glasses.png"       alt="" data-speed="0.85"  data-rot="9">
-    <img class="deco-5" src="creditCard.png"    alt="" data-speed="-0.7"  data-rot="-14">
+    <img class="deco-1"  src="normal.png"        alt="" data-speed="0.62"  data-rot="-8">
+    <img class="deco-2"  src="glasses.png"       alt="" data-speed="-0.55" data-rot="14">
+    <img class="deco-3"  src="creditcard.png"    alt="" data-speed="0.78"  data-rot="-16">
+    <img class="deco-4"  src="mariachiHat.png"   alt="" data-speed="-0.42" data-rot="7">
+    <img class="deco-5"  src="supplyYdemand.png" alt="" data-speed="0.36"  data-rot="-4">
+    <img class="deco-6"  src="normal.png"        alt="" data-speed="-0.88" data-rot="19">
+
+    <img class="deco-7"  src="mariachiHat.png"   alt="" data-speed="-0.48" data-rot="12">
+    <img class="deco-8"  src="supplyYdemand.png" alt="" data-speed="0.34"  data-rot="-6">
+    <img class="deco-9"  src="creditcard.png"    alt="" data-speed="-0.7"  data-rot="-13">
+    <img class="deco-10" src="glasses.png"       alt="" data-speed="0.85"  data-rot="9">
+    <img class="deco-11" src="normal.png"        alt="" data-speed="-0.6"  data-rot="-11">
+    <img class="deco-12" src="mariachiHat.png"   alt="" data-speed="0.5"   data-rot="17">
   </div>
+  <div class="band-front" aria-hidden="true">
+    <div class="band-front-inner">
+      <img class="deco-13" src="supplyYdemand.png" alt="" data-speed="-0.95" data-rot="-9">
+      <img class="deco-14" src="glasses.png"       alt="" data-speed="0.72"  data-rot="16">
+      <img class="deco-15" src="creditcard.png"    alt="" data-speed="-0.82" data-rot="-18">
+      <img class="deco-16" src="mariachiHat.png"   alt="" data-speed="0.9"   data-rot="-12">
+    </div>
+  </div>
+
   <div class="wrap band-inner">
     <div class="portrait-holder">
       <img class="portrait" src="portrait.png" alt="Gerardo Murga">
@@ -533,7 +600,7 @@
   }
 
   /* drifting rings in the header, plus the progress bar and active nav link */
-  var rings = document.querySelectorAll(".band-deco img");
+  var rings = document.querySelectorAll(".band-deco img, .band-front img");
   var bar = document.getElementById("progress-bar");
   var links = document.querySelectorAll("nav a");
   var sections = document.querySelectorAll("section[id]");
