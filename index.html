@@ -426,13 +426,14 @@
     .panel-about { padding-top: 30px; }
     .contact { flex-direction: column; align-items: flex-start; }
 
-    /* keep a few objects, all clear of the portrait and the text below it */
+    /* keep a few objects, all clear of the portrait and the text below it.
+       these selectors need img in them to outrank the hide rule above */
     .band-deco img { display: none; }
     .band-front { display: none; }
-    .deco-7 { display: block; width: 54px; right:  4%; top:  6%; opacity: 0.5; }
-    .deco-9 { display: block; width: 38px; right: 26%; top:  3%; opacity: 0.38; }
-    .deco-1 { display: block; width: 46px; right:  9%; top: 26%; opacity: 0.44; }
-    .deco-5 { display: block; width: 36px; right: 28%; top: 32%; opacity: 0.32; }
+    .band-deco img.deco-7 { display: block; width: 54px; right:  4%; top:  6%; opacity: 0.5; }
+    .band-deco img.deco-9 { display: block; width: 38px; right: 26%; top:  3%; opacity: 0.38; }
+    .band-deco img.deco-1 { display: block; width: 46px; left: auto; right:  9%; top: 26%; opacity: 0.44; }
+    .band-deco img.deco-5 { display: block; width: 36px; left: auto; right: 28%; top: 32%; opacity: 0.32; }
   }
 
   @media (prefers-reduced-motion: reduce) {
